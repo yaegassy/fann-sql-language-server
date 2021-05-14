@@ -39,7 +39,7 @@ Options:
   -h, --help       display help for command
 ```
 
-### Client (coc.nvim extension)
+### Client
 
 **coc.nvim extension**:
 
