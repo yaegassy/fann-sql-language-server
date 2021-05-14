@@ -2,6 +2,8 @@
 
 [Expelmental and Study] Implemented [fannheyward/coc-sql](https://github.com/fannheyward/coc-sql) features in the language server.
 
+<img width="780" alt="fann-sql-language-server-demo" src="https://user-images.githubusercontent.com/188642/118281698-790a0e00-b508-11eb-9df8-4f44dfec4c4a.gif">
+
 ## Overview
 
 - "Server" by [vscode-languageserver](https://github.com/microsoft/vscode-languageserver-node) based language server
