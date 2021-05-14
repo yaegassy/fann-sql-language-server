@@ -1,0 +1,91 @@
+{
+  "name": "fann-sql-language-server",
+  "version": "0.0.1",
+  "description": "",
+  "author": "yaegassy <yosstools@gmail.com>",
+  "license": "MIT",
+  "main": "lib/client/index.js",
+  "keywords": [
+    "coc.nvim"
+  ],
+  "engines": {
+    "coc": "^0.0.80"
+  },
+  "scripts": {
+    "lint": "eslint coc --ext ts",
+    "clean": "rimraf lib",
+    "watch": "node esbuild.js --watch",
+    "build": "node esbuild.js",
+    "prepare": "node esbuild.js"
+  },
+  "bin": {
+    "fann-sql-language-server": "./bin/index.js"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "printWidth": 120,
+    "semi": true
+  },
+  "devDependencies": {
+    "@types/node": "^15.0.0",
+    "@types/sql-formatter": "^2.3.0",
+    "@typescript-eslint/eslint-plugin": "^4.8.2",
+    "@typescript-eslint/parser": "^4.8.2",
+    "coc.nvim": "^0.0.80",
+    "esbuild": "^0.8.42",
+    "eslint": "^7.14.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "prettier": "^2.2.0",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.1.2"
+  },
+  "activationEvents": [
+    "onLanguage:sql"
+  ],
+  "contributes": {
+    "configuration": {
+      "type": "object",
+      "title": "coc-fann-sql-ls configuration",
+      "properties": {
+        "fann-sql.enable": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable coc-fann-sql-ls extension"
+        },
+        "fann-sql.formatOptions": {
+          "type": "object",
+          "default": {},
+          "description": "Format options passed to sql-formatter, check https://github.com/zeroturnaround/sql-formatter"
+        },
+        "fann-sql.database": {
+          "type": "string",
+          "default": "mysql",
+          "enum": [
+            "db2",
+            "hive",
+            "mysql",
+            "mariadb",
+            "bigquery",
+            "postgresql",
+            "transactsql"
+          ],
+          "description": "Define the database to lint"
+        },
+        "fann-sql.disableLint": {
+          "type": "boolean",
+          "default": false,
+          "description": "Disable lint"
+        }
+      }
+    }
+  },
+  "dependencies": {
+    "commander": "^5.1.0",
+    "node-sql-parser": "^3.0.1",
+    "sql-formatter": "^4.0.1",
+    "pg-query-emscripten": "^0.1.0",
+    "vscode-languageserver": "^7.0.0",
+    "vscode-languageserver-textdocument": "^1.0.1"
+  }
+}
