@@ -41,11 +41,29 @@ Options:
 
 ### Client (coc.nvim extension)
 
+**coc.nvim extension**:
+
 Now `set runtimepath^=/path/to/fann-sql-language-server` in "vimrc/init.vim"
 
-## Note
+**vim-lsp**:
 
-- I don't think it will work with LSP clients other than coc.nvim. (Needs adjustment)
+```vim
+if executable('fann-sql-language-server')
+  augroup LspFannSql
+    au!
+    autocmd User lsp_setup call lsp#register_server({
+        \ 'name': 'fann-sql-language-server',
+        \ 'cmd': {server_info->['fann-sql-language-server', '--stdio']},
+        \ 'allowlist': ['sql'],
+        \ 'workspace_config': {
+        \   'fann-sql': {
+        \     'database': 'mysql'
+        \   }
+        \ },
+        \ })
+  augroup END
+endif
+```
 
 ## Thanks
 
